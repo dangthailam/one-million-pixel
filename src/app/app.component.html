@@ -1,6 +1,8 @@
 <div style="display: flex; align-items: center; justify-content: center">
   <img src="http://www.milliondollarhomepage.com/index_files/neg.gif" name="neg" id="neg" width="1000" height="1000" usemap="#map">
-  <map name="map">
-    <area shape="rect" coords="0, 0,500,500" href="#" id="body_one">
+  <map name="map" (mouseover)="hidden = false" (mouseout)="hidden = true">
+    <area shape="rect" *ngFor="let a of pixelArray; let i = index" [coords]="a" [href]="'#' + i" alt="test1" (mouseover)="displayDiv(a)">
   </map>
 </div>
+
+<div [ngStyle]="{'x': xPos, 'y': yPos}" style="width: 10px; height: 10px; border: 1px solid #f00; position: absolute"></div>
